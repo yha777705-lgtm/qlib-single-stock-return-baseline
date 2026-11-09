@@ -3,9 +3,10 @@ import numpy as np
 import pandas as pd
 import qlib
 from qlib.data import D
+from config import DATA_DIR
 
 qlib.init(
-    provider_uri=r"C:\Users\Lenovo\Downloads\qlib_data_simple_cn_1d_0.9",
+    provider_uri=str(DATA_DIR),
     region="cn",
     kernels=1,
     expression_cache=None,

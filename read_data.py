@@ -1,10 +1,10 @@
-﻿import qlib
+﻿
+import qlib
 from qlib.data import D
-
-DATA_DIR = r"C:\Users\Lenovo\Downloads\qlib_data_simple_cn_1d_0.9"
+from config import DATA_DIR
 
 qlib.init(
-    provider_uri=DATA_DIR,
+    provider_uri=str(DATA_DIR),
     region="cn",
     kernels=1,
     expression_cache=None,
