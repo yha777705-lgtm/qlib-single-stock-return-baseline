@@ -1,0 +1,18 @@
+﻿# Local datasets and generated models
+/data/
+/artifacts/
+
+# Detailed predictions
+/reports/*.csv
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Experiment tracking files
+/mlruns/
+/mlartifacts/

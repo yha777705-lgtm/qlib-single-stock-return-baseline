@@ -1,0 +1,33 @@
+{
+  "evaluation_set": "validation",
+  "test_evaluated": false,
+  "train_rows": 1587,
+  "validation_rows": 479,
+  "features": [
+    "return_1d",
+    "return_5d",
+    "volume_ratio_5d"
+  ],
+  "target": "target_return_1d",
+  "ridge_alpha": 1.0,
+  "metric_units": "fractional return",
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "sklearn": "1.9.1"
+  },
+  "models": {
+    "ZERO": {
+      "mae": 0.008475140277515657,
+      "rmse": 0.012463461118653357
+    },
+    "TRAIN_MEAN": {
+      "mae": 0.008552604228450618,
+      "rmse": 0.012500024353497707
+    },
+    "RIDGE": {
+      "mae": 0.008595052238864262,
+      "rmse": 0.012529631591299795
+    }
+  }
+}

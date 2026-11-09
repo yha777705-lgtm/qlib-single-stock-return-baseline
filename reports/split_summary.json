@@ -1,0 +1,32 @@
+{
+  "source_sha256": "23eab296f3b7725d5091d97a919396e054bf34e0c95c54f704af1161cd0546e0",
+  "features": [
+    "return_1d",
+    "return_5d",
+    "volume_ratio_5d"
+  ],
+  "target": "target_return_1d",
+  "validation_start": "2017-01-01",
+  "test_start": "2019-01-01",
+  "purged_boundary_rows": 2,
+  "splits": {
+    "train": {
+      "rows": 1587,
+      "feature_start": "2010-01-11",
+      "feature_end": "2016-12-29",
+      "last_target_date": "2016-12-30"
+    },
+    "validation": {
+      "rows": 479,
+      "feature_start": "2017-01-03",
+      "feature_end": "2018-12-27",
+      "last_target_date": "2018-12-28"
+    },
+    "test": {
+      "rows": 478,
+      "feature_start": "2019-01-02",
+      "feature_end": "2020-12-30",
+      "last_target_date": "2020-12-31"
+    }
+  }
+}

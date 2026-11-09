@@ -1,0 +1,20 @@
+{
+  "new_training_performed": false,
+  "test_evaluated": false,
+  "results": {
+    "train": {
+      "rows": 1587,
+      "return_std": 0.019264398632075318,
+      "zero_rmse": 0.019273991566142897,
+      "lightgbm_rmse": 0.01891630270323581,
+      "rmse_gain_pct": 1.8558110377894517
+    },
+    "validation": {
+      "rows": 479,
+      "return_std": 0.012455458268528535,
+      "zero_rmse": 0.012463461118653357,
+      "lightgbm_rmse": 0.01255864807551981,
+      "rmse_gain_pct": -0.7637281166143491
+    }
+  }
+}
