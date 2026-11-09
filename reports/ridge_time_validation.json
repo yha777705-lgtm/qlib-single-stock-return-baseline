@@ -1,0 +1,112 @@
+{
+  "experiment": "two predefined expanding-window Ridge folds within original training period",
+  "validation_years": [
+    2015,
+    2016
+  ],
+  "features": [
+    "return_1d",
+    "return_5d",
+    "volume_ratio_5d"
+  ],
+  "ridge_alpha": 1.0,
+  "scaling": "fresh StandardScaler per fold, fitted on that fold training rows only",
+  "boundary_rule": "purge training targets crossing the fold start and validation targets crossing the fold end",
+  "new_training_performed": true,
+  "hyperparameter_search_performed": false,
+  "final_model_selected": false,
+  "outer_2017_2018_validation_scored_in_this_run": false,
+  "test_evaluated": false,
+  "uncertainty_assessed": false,
+  "interpretation": "Exploratory historical training-period diagnostics; not an untouched final test or proof of stable superiority.",
+  "metric_units": "fractional return; relative RMSE gain in percent",
+  "input_sha256": {
+    "data/splits/train.csv": "e8effe1f5728acc1b3c174220c01b4ef08f48a988803943bcf16db220a782650",
+    "reports/split_summary.json": "64f64d9f18cff1028eda58caf35099d537ec56c38e8abf42dc02d104361ff215",
+    "reports/baseline_validation.json": "d9cc71f6af8d466a491e6fbfe6e7b7039683118eabbdff754cc1f099e672cf3a"
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "sklearn": "1.9.1"
+  },
+  "folds": {
+    "2015": {
+      "train_rows": 1149,
+      "train_feature_start": "2010-01-11",
+      "train_feature_end": "2014-12-30",
+      "last_training_target_date": "2014-12-31",
+      "validation_rows": 217,
+      "validation_feature_start": "2015-01-05",
+      "validation_feature_end": "2015-12-30",
+      "last_validation_target_date": "2015-12-31",
+      "training_boundary_rows_removed": 1,
+      "validation_boundary_rows_removed": 1,
+      "scaler_fit_rows": 1149,
+      "scaler_mean_by_feature": {
+        "return_1d": 0.00043762836835509135,
+        "return_5d": 0.002041099043167972,
+        "volume_ratio_5d": 0.00513644380955396
+      },
+      "scaler_scale_by_feature": {
+        "return_1d": 0.018480206069824878,
+        "return_5d": 0.04313603068679022,
+        "volume_ratio_5d": 0.32715100183827206
+      },
+      "zero_scores": {
+        "mae": 0.02024665346543779,
+        "rmse": 0.027506949724594217
+      },
+      "ridge_scores": {
+        "mae": 0.020237534291690597,
+        "rmse": 0.027666900600744716
+      },
+      "ridge_rmse_gain_vs_zero_pct": -0.5814925964236769
+    },
+    "2016": {
+      "train_rows": 1367,
+      "train_feature_start": "2010-01-11",
+      "train_feature_end": "2015-12-30",
+      "last_training_target_date": "2015-12-31",
+      "validation_rows": 219,
+      "validation_feature_start": "2016-01-04",
+      "validation_feature_end": "2016-12-29",
+      "last_validation_target_date": "2016-12-30",
+      "training_boundary_rows_removed": 1,
+      "validation_boundary_rows_removed": 0,
+      "scaler_fit_rows": 1367,
+      "scaler_mean_by_feature": {
+        "return_1d": 0.0006048603611850768,
+        "return_5d": 0.0030522660250914407,
+        "volume_ratio_5d": 0.0028947110558764535
+      },
+      "scaler_scale_by_feature": {
+        "return_1d": 0.02020283952283392,
+        "return_5d": 0.04583191697953319,
+        "volume_ratio_5d": 0.32953407599101453
+      },
+      "zero_scores": {
+        "mae": 0.007358911619543379,
+        "rmse": 0.011314374705885763
+      },
+      "ridge_scores": {
+        "mae": 0.007319578146491274,
+        "rmse": 0.011250496342579725
+      },
+      "ridge_rmse_gain_vs_zero_pct": 0.5645770532313042
+    }
+  },
+  "pooled_out_of_fold": {
+    "rows": 436,
+    "aggregation": "score all concatenated non-overlapping fold predictions, not the mean of fold RMSE",
+    "zero_scores": {
+      "mae": 0.013773223501559632,
+      "rmse": 0.020997187823152262
+    },
+    "ridge_scores": {
+      "mae": 0.01374892787930837,
+      "rmse": 0.021084359102611087
+    },
+    "ridge_rmse_gain_vs_zero_pct": -0.4151569257417719
+  }
+}
