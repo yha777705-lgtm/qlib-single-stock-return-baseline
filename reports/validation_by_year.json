@@ -1,0 +1,101 @@
+{
+  "evaluation_set": "validation",
+  "grouping": "calendar year of feature_date",
+  "new_training_performed": false,
+  "model_selection_performed": false,
+  "test_evaluated": false,
+  "uncertainty_assessed": false,
+  "metric_units": "fractional return; relative RMSE gain in percent",
+  "positive_gain_means": "lower RMSE than ZERO on the same subset",
+  "interpretation": "Descriptive subgroup results; no significance or causal claim.",
+  "input_sha256": {
+    "reports/split_summary.json": "64f64d9f18cff1028eda58caf35099d537ec56c38e8abf42dc02d104361ff215",
+    "reports/baseline_validation.json": "d9cc71f6af8d466a491e6fbfe6e7b7039683118eabbdff754cc1f099e672cf3a",
+    "reports/lightgbm_validation.json": "c3ba533c8fcd3639546c861d965df2ca62d2aed7d9686201ef89b99fca627888",
+    "reports/baseline_validation_predictions.csv": "00295bcc1ad12c6264464090bd954b45b05057f296825a08d297c132bf9747ba",
+    "reports/lightgbm_validation_predictions.csv": "5cdd8d2dd14e6845ae29728e7e7adc35739d3ffa7691bafc46ad622102a44d6a"
+  },
+  "overall": {
+    "rows": 479,
+    "feature_start": "2017-01-03",
+    "feature_end": "2018-12-27",
+    "models": {
+      "ZERO": {
+        "mae": 0.008475140277515657,
+        "rmse": 0.012463461118653357,
+        "rmse_gain_vs_zero_pct": 0.0
+      },
+      "TRAIN_MEAN": {
+        "mae": 0.008552604228450616,
+        "rmse": 0.012500024353497705,
+        "rmse_gain_vs_zero_pct": -0.29336341242824254
+      },
+      "RIDGE": {
+        "mae": 0.008595052238864259,
+        "rmse": 0.012529631591299793,
+        "rmse_gain_vs_zero_pct": -0.5309157064517422
+      },
+      "LIGHTGBM_FIXED": {
+        "mae": 0.008590242951623861,
+        "rmse": 0.012558648075519808,
+        "rmse_gain_vs_zero_pct": -0.7637281166143352
+      }
+    }
+  },
+  "by_year": {
+    "2017": {
+      "rows": 237,
+      "feature_start": "2017-01-03",
+      "feature_end": "2017-12-29",
+      "models": {
+        "ZERO": {
+          "mae": 0.006925934469746835,
+          "rmse": 0.011030102675665225,
+          "rmse_gain_vs_zero_pct": 0.0
+        },
+        "TRAIN_MEAN": {
+          "mae": 0.007026055352823095,
+          "rmse": 0.011043711781803895,
+          "rmse_gain_vs_zero_pct": -0.123381500053439
+        },
+        "RIDGE": {
+          "mae": 0.007059124384867888,
+          "rmse": 0.011083466029603353,
+          "rmse_gain_vs_zero_pct": -0.4837974360461649
+        },
+        "LIGHTGBM_FIXED": {
+          "mae": 0.007034523088004315,
+          "rmse": 0.011107662763919841,
+          "rmse_gain_vs_zero_pct": -0.703167418610984
+        }
+      }
+    },
+    "2018": {
+      "rows": 242,
+      "feature_start": "2018-01-02",
+      "feature_end": "2018-12-27",
+      "models": {
+        "ZERO": {
+          "mae": 0.009992337700826448,
+          "rmse": 0.01372285694937783,
+          "rmse_gain_vs_zero_pct": 0.0
+        },
+        "TRAIN_MEAN": {
+          "mae": 0.010047612838052774,
+          "rmse": 0.01377785316591476,
+          "rmse_gain_vs_zero_pct": -0.40076360731446703
+        },
+        "RIDGE": {
+          "mae": 0.01009924604629046,
+          "rmse": 0.013799803257281251,
+          "rmse_gain_vs_zero_pct": -0.5607163886300639
+        },
+        "LIGHTGBM_FIXED": {
+          "mae": 0.01011381984285457,
+          "rmse": 0.013832917903427354,
+          "rmse_gain_vs_zero_pct": -0.8020265346751555
+        }
+      }
+    }
+  }
+}

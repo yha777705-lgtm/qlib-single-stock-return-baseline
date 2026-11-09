@@ -50,3 +50,15 @@ LightGBM相对零预测，训练集RMSE降低约1.86%，验证集RMSE升高约0.
 - 测试集仅重建划分并核对文件指纹，未用于调参或模型性能评估。
 - 本次复用已有原始数据，验证范围限于同一台 Windows 电脑的新环境，不代表跨机器、跨平台验证或预测能力提升。
 - 证据：reports/reproduction_check.json。
+
+## 验证集按年诊断（2026-11-09）
+
+- 问题：固定 LightGBM 在2017、2018两个验证年度是否均不及零预测？
+- 使用已有验证集预测，按 feature_date 和 target_date 一对一合并，并核对真实收益一致性、日期范围、样本数及总体误差。
+- 仅按 feature_date 的年份分组；没有重新训练、调整参数或评估测试集。
+- 2017年237行：ZERO RMSE 1.103010 pp，LightGBM RMSE 1.110766 pp，相对改善 -0.7032%。
+- 2018年242行：ZERO RMSE 1.372286 pp，LightGBM RMSE 1.383292 pp，相对改善 -0.8020%。
+- 两个年度切片的 LightGBM RMSE 均略高于零预测。未做不确定性或因果检验，不将该结果当作过拟合证明。
+- JSON 保留四个模型的完整精度结果、输入文件 SHA-256、指标单位和未评估测试集的标记。
+- 脚本：analyze_validation_by_year.py；报告：reports/validation_by_year.json。
+- 本项脚本与分析由 Codex 在用户要求继续项目的上下文中代为完成。
