@@ -62,3 +62,15 @@ LightGBM相对零预测，训练集RMSE降低约1.86%，验证集RMSE升高约0.
 - JSON 保留四个模型的完整精度结果、输入文件 SHA-256、指标单位和未评估测试集的标记。
 - 脚本：analyze_validation_by_year.py；报告：reports/validation_by_year.json。
 - 本项脚本与分析由 Codex 在用户要求继续项目的上下文中代为完成。
+
+## 固定 Ridge 的特征消融
+
+- 设计：预先固定全部特征、去掉 return_1d、去掉 return_5d、去掉 volume_ratio_5d 四组；保留所有结果。
+- 四组均使用同一批训练1587行和验证479行，以及相同标签；StandardScaler 只在训练集拟合，Ridge alpha 固定为1.0。
+- 全特征配置的 MAE、RMSE 与既有 Ridge 基线核对一致。零预测误差也与原报告一致。
+- 验证 RMSE（pp）：零预测1.246346；全特征1.252963；去掉 return_1d 后1.252952；去掉 return_5d 后1.252754；去掉 volume_ratio_5d 后1.250030。
+- 去掉成交量指标的配置在四组 Ridge 中误差最低，但四组仍均不及零预测。
+- 这是探索性的验证集比较，未作不确定性或因果检验；没有据此确定最终模型，未评估测试集。
+- 脚本：ablate_ridge_features.py；报告：reports/ridge_feature_ablation.json；逐样本预测 CSV 保留在本地并由 Git 忽略。
+- 报告记录输入文件 SHA-256、实际库版本、各组使用的特征、训练与验证误差。
+- 本项脚本、运行和诊断由 Codex 代为完成，原有基线模型配置与结果保持不变。

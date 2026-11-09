@@ -78,6 +78,24 @@ LightGBM 在训练集上的改善没有延续到该验证时期；
 生成原有验证集预测后，在项目根目录运行 python analyze_validation_by_year.py。
 完整的四模型分年结果见 reports/validation_by_year.json；本项脚本与诊断由 Codex 代为完成。
 
+### 固定 Ridge 的特征消融
+
+固定 StandardScaler + Ridge(alpha=1.0)，每次去掉一个特征；四组使用完全相同的训练1587行和验证479行。标准化只在训练集拟合。RMSE 单位为百分点。
+
+| 配置 | 验证集 RMSE |
+|---|---:|
+| 零预测（对照） | 1.2463 |
+| Ridge：全部三个特征 | 1.2530 |
+| Ridge：去掉 return_1d | 1.2530 |
+| Ridge：去掉 return_5d | 1.2528 |
+| Ridge：去掉 volume_ratio_5d | 1.2500 |
+
+表中采用四位小数展示，完整精度见报告。去掉成交量指标的配置在四组 Ridge 中误差最低，但仍未超过零预测。
+该比较限于当前模型和验证期，没有不确定性检验，不能证明某个特征普遍无效或存在因果影响，也没有据此确定最终模型。
+
+生成数据划分和原始基线报告后，运行 python ablate_ridge_features.py。
+结果见 reports/ridge_feature_ablation.json；本项脚本与分析由 Codex 代为完成，测试集未评估。
+
 ## 环境与数据路径
 
 已验证环境：Windows、Python 3.11.18、Qlib 0.9.7。

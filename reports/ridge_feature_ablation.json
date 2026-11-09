@@ -1,0 +1,102 @@
+{
+  "experiment": "fixed Ridge leave-one-feature-out validation comparison",
+  "evaluation_set": "validation",
+  "test_evaluated": false,
+  "new_training_performed": true,
+  "hyperparameter_search_performed": false,
+  "final_model_selected": false,
+  "uncertainty_assessed": false,
+  "training_rows": 1587,
+  "validation_rows": 479,
+  "ridge_alpha": 1.0,
+  "preprocessing": "StandardScaler fitted on training rows separately for each configuration",
+  "predefined_trial_count": 4,
+  "metric_units": "fractional return; relative RMSE gains in percent",
+  "interpretation": "Exploratory validation comparison; not causal feature importance or proof of stable predictive value.",
+  "input_sha256": {
+    "reports/split_summary.json": "64f64d9f18cff1028eda58caf35099d537ec56c38e8abf42dc02d104361ff215",
+    "reports/baseline_validation.json": "d9cc71f6af8d466a491e6fbfe6e7b7039683118eabbdff754cc1f099e672cf3a",
+    "data/splits/train.csv": "e8effe1f5728acc1b3c174220c01b4ef08f48a988803943bcf16db220a782650",
+    "data/splits/validation.csv": "f0d198f7498527a4b2e7fc76ee0e40c76580acd75f3e33ef48773f0004bede3e"
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "sklearn": "1.9.1"
+  },
+  "zero_validation_scores": {
+    "mae": 0.008475140277515657,
+    "rmse": 0.012463461118653357
+  },
+  "results": {
+    "ALL_FEATURES": {
+      "features": [
+        "return_1d",
+        "return_5d",
+        "volume_ratio_5d"
+      ],
+      "removed_feature": null,
+      "train_scores": {
+        "mae": 0.013105559824490229,
+        "rmse": 0.019242299435143096
+      },
+      "validation_scores": {
+        "mae": 0.008595052238864262,
+        "rmse": 0.012529631591299795
+      },
+      "validation_rmse_gain_vs_zero_pct": -0.5309157064517562,
+      "validation_rmse_gain_vs_full_pct": 0.0
+    },
+    "WITHOUT_RETURN_1D": {
+      "features": [
+        "return_5d",
+        "volume_ratio_5d"
+      ],
+      "removed_feature": "return_1d",
+      "train_scores": {
+        "mae": 0.013114222234464599,
+        "rmse": 0.019243341902018696
+      },
+      "validation_scores": {
+        "mae": 0.00859200077613259,
+        "rmse": 0.012529518823449645
+      },
+      "validation_rmse_gain_vs_zero_pct": -0.5300109188564306,
+      "validation_rmse_gain_vs_full_pct": 0.000900009304568173
+    },
+    "WITHOUT_RETURN_5D": {
+      "features": [
+        "return_1d",
+        "volume_ratio_5d"
+      ],
+      "removed_feature": "return_5d",
+      "train_scores": {
+        "mae": 0.013110422076660713,
+        "rmse": 0.019243363434580725
+      },
+      "validation_scores": {
+        "mae": 0.008598068748509182,
+        "rmse": 0.012527540497786063
+      },
+      "validation_rmse_gain_vs_zero_pct": -0.5141379150034177,
+      "validation_rmse_gain_vs_full_pct": 0.016689185938909914
+    },
+    "WITHOUT_VOLUME_RATIO_5D": {
+      "features": [
+        "return_1d",
+        "return_5d"
+      ],
+      "removed_feature": "volume_ratio_5d",
+      "train_scores": {
+        "mae": 0.013124429068435152,
+        "rmse": 0.0192637332073002
+      },
+      "validation_scores": {
+        "mae": 0.008548958385113334,
+        "rmse": 0.012500298012413424
+      },
+      "validation_rmse_gain_vs_zero_pct": -0.29555910199724666,
+      "validation_rmse_gain_vs_full_pct": 0.23411365827179584
+    }
+  }
+}
