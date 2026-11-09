@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "verification_date": "2026-11-09",
+  "source_commit": "13ea408cf4b5ffc5b3f618af9ce7c596eddd540a",
+  "reproduction_commit": "13ea408cf4b5ffc5b3f618af9ce7c596eddd540a",
+  "scope": "Same Windows computer; newly created Conda environment and a clean local clone; same existing raw dataset; no independent data download or cross-platform validation",
+  "python_environment": "qlib-reproduce",
+  "python_version": "3.11.18",
+  "test_evaluated": false,
+  "passed": true,
+  "identical_file_count": 10,
+  "files": [
+    {
+      "file": "data/sh600000_daily.csv",
+      "reference_sha256": "23eab296f3b7725d5091d97a919396e054bf34e0c95c54f704af1161cd0546e0",
+      "reproduced_sha256": "23eab296f3b7725d5091d97a919396e054bf34e0c95c54f704af1161cd0546e0",
+      "identical": true
+    },
+    {
+      "file": "data/splits/train.csv",
+      "reference_sha256": "e8effe1f5728acc1b3c174220c01b4ef08f48a988803943bcf16db220a782650",
+      "reproduced_sha256": "e8effe1f5728acc1b3c174220c01b4ef08f48a988803943bcf16db220a782650",
+      "identical": true
+    },
+    {
+      "file": "data/splits/validation.csv",
+      "reference_sha256": "f0d198f7498527a4b2e7fc76ee0e40c76580acd75f3e33ef48773f0004bede3e",
+      "reproduced_sha256": "f0d198f7498527a4b2e7fc76ee0e40c76580acd75f3e33ef48773f0004bede3e",
+      "identical": true
+    },
+    {
+      "file": "data/splits/test.csv",
+      "reference_sha256": "74f73db1fbbb5fe9444fd6ab0e711ad8f05577a7c77345bdf8b64b5302801056",
+      "reproduced_sha256": "74f73db1fbbb5fe9444fd6ab0e711ad8f05577a7c77345bdf8b64b5302801056",
+      "identical": true
+    },
+    {
+      "file": "reports/split_summary.json",
+      "reference_sha256": "64f64d9f18cff1028eda58caf35099d537ec56c38e8abf42dc02d104361ff215",
+      "reproduced_sha256": "64f64d9f18cff1028eda58caf35099d537ec56c38e8abf42dc02d104361ff215",
+      "identical": true
+    },
+    {
+      "file": "reports/baseline_validation.json",
+      "reference_sha256": "d9cc71f6af8d466a491e6fbfe6e7b7039683118eabbdff754cc1f099e672cf3a",
+      "reproduced_sha256": "d9cc71f6af8d466a491e6fbfe6e7b7039683118eabbdff754cc1f099e672cf3a",
+      "identical": true
+    },
+    {
+      "file": "reports/lightgbm_validation.json",
+      "reference_sha256": "c3ba533c8fcd3639546c861d965df2ca62d2aed7d9686201ef89b99fca627888",
+      "reproduced_sha256": "c3ba533c8fcd3639546c861d965df2ca62d2aed7d9686201ef89b99fca627888",
+      "identical": true
+    },
+    {
+      "file": "reports/relative_baseline_diagnostics.json",
+      "reference_sha256": "552885e276ef005c26b30a6bb46467bd6b9a834e653b35828e7af99d605ad1d5",
+      "reproduced_sha256": "552885e276ef005c26b30a6bb46467bd6b9a834e653b35828e7af99d605ad1d5",
+      "identical": true
+    },
+    {
+      "file": "reports/baseline_validation_predictions.csv",
+      "reference_sha256": "00295bcc1ad12c6264464090bd954b45b05057f296825a08d297c132bf9747ba",
+      "reproduced_sha256": "00295bcc1ad12c6264464090bd954b45b05057f296825a08d297c132bf9747ba",
+      "identical": true
+    },
+    {
+      "file": "reports/lightgbm_validation_predictions.csv",
+      "reference_sha256": "5cdd8d2dd14e6845ae29728e7e7adc35739d3ffa7691bafc46ad622102a44d6a",
+      "reproduced_sha256": "5cdd8d2dd14e6845ae29728e7e7adc35739d3ffa7691bafc46ad622102a44d6a",
+      "identical": true
+    }
+  ],
+  "generated_models": [
+    {
+      "file": "artifacts/baselines/zero.joblib",
+      "bytes": 703
+    },
+    {
+      "file": "artifacts/baselines/train_mean.joblib",
+      "bytes": 703
+    },
+    {
+      "file": "artifacts/baselines/ridge.joblib",
+      "bytes": 1369
+    },
+    {
+      "file": "artifacts/lightgbm_fixed.joblib",
+      "bytes": 74188
+    }
+  ],
+  "executed_by": "Codex, at the user request",
+  "executed_scripts": [
+    "build_dataset.py",
+    "split_dataset.py",
+    "train_baselines.py",
+    "train_lightgbm.py",
+    "diagnose_model.py"
+  ]
+}

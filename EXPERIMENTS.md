@@ -38,3 +38,15 @@ LightGBM相对零预测，训练集RMSE降低约1.86%，验证集RMSE升高约0.
 - reports/baseline_validation.json
 - reports/lightgbm_validation.json
 - reports/relative_baseline_diagnostics.json
+
+## 本机新环境复现检查（2026-11-09）
+
+- 经用户授权，由 Codex 在新建 qlib-reproduce 环境和干净本地源码副本中执行。
+- 验证代码提交：13ea408cf4b5ffc5b3f618af9ce7c596eddd540a；Python 3.11.18。
+- 数据构建、划分、基础模型、固定参数 LightGBM 和诊断脚本均运行成功。
+- 重新生成2546行样本；训练1587行、验证479行、测试478行，剔除2条跨边界样本。
+- 特征数据、三个划分文件、四份 JSON 报告及两份验证集预测 CSV，共10个文件的 SHA-256 均与原实验完全一致。
+- 四个模型文件均重新生成；未主张模型二进制文件本身逐字节一致。
+- 测试集仅重建划分并核对文件指纹，未用于调参或模型性能评估。
+- 本次复用已有原始数据，验证范围限于同一台 Windows 电脑的新环境，不代表跨机器、跨平台验证或预测能力提升。
+- 证据：reports/reproduction_check.json。
