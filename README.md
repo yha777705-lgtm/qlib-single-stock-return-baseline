@@ -165,7 +165,10 @@ python split_dataset.py
 python train_baselines.py
 python train_lightgbm.py
 python diagnose_model.py
+python evaluate_validation.py
 ```
+
+evaluate_validation.py 将讨论中练习的评价公式整理为独立脚本：读取已生成的验证集预测，重新计算 LightGBM 和零预测的 MAE、RMSE 及相对改善，并核对原报告。返回指标为收益率小数，乘100后为百分点；相对改善的单位为百分比。脚本基于文件自身位置读取数据，可从其他工作目录运行。它不训练模型或评估测试集。本项由 Codex 经用户授权整理、运行与核对。
 
 生成的数据位于 data，模型文件位于 artifacts，
 实验报告位于 reports。
