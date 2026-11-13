@@ -55,6 +55,10 @@ qlib_data_simple_cn_1d_0.9.zip。
 | RIDGE | 0.8595 | 1.2530 |
 | LIGHTGBM_FIXED | 0.8590 | 1.2559 |
 
+![2017—2018年验证集的四模型 RMSE 与相对零预测改善](reports/validation_model_comparison.png)
+
+左图为 RMSE（单位：百分点，越低越好），纵轴从0开始；右图为相对零预测的 RMSE 改善（单位：百分比，负数表示更差）。图中柱形仅表示当前验证集上的描述性结果，没有不确定性区间或显著性结论。
+
 ZERO 始终预测0，TRAIN_MEAN 始终预测训练集标签均值。
 
 当前验证集上，Ridge 和固定参数 LightGBM 均未超过零预测基线。
@@ -166,7 +170,10 @@ python train_baselines.py
 python train_lightgbm.py
 python diagnose_model.py
 python evaluate_validation.py
+python plot_validation_comparison.py
 ```
+
+plot_validation_comparison.py 只读取已保存的验证报告，生成 reports/validation_model_comparison.png，无须重新训练。绘图使用 requirements.txt 中已记录的 Matplotlib；脚本与图表由 Codex 经用户授权完成。
 
 evaluate_validation.py 将讨论中练习的评价公式整理为独立脚本：读取已生成的验证集预测，重新计算 LightGBM 和零预测的 MAE、RMSE 及相对改善，并核对原报告。返回指标为收益率小数，乘100后为百分点；相对改善的单位为百分比。脚本基于文件自身位置读取数据，可从其他工作目录运行。它不训练模型或评估测试集。本项由 Codex 经用户授权整理、运行与核对。
 
