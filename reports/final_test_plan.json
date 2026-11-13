@@ -1,0 +1,80 @@
+{
+  "recorded_date": "2026-11-13",
+  "status": "planned_not_evaluated",
+  "test_evaluated": false,
+  "source_commit": "1fd2b64827308c35248fd248eb5c1b19b519b785",
+  "features": [
+    "return_1d",
+    "return_5d",
+    "volume_ratio_5d"
+  ],
+  "target": "target_return_1d",
+  "training_split": {
+    "rows": 1587,
+    "feature_start": "2010-01-11",
+    "feature_end": "2016-12-29",
+    "last_target_date": "2016-12-30"
+  },
+  "test_split": {
+    "rows": 478,
+    "feature_start": "2019-01-02",
+    "feature_end": "2020-12-30",
+    "last_target_date": "2020-12-31"
+  },
+  "refit_on_validation": false,
+  "rolling_retraining": false,
+  "models": {
+    "ZERO": {
+      "strategy": "constant",
+      "constant": 0.0
+    },
+    "TRAIN_MEAN": {
+      "strategy": "mean",
+      "fitted_on": "original_training_labels"
+    },
+    "RIDGE": {
+      "preprocessing": "training_fitted_StandardScaler",
+      "alpha": 1.0
+    },
+    "LIGHTGBM_FIXED": {
+      "objective": "regression",
+      "n_estimators": 100,
+      "learning_rate": 0.03,
+      "num_leaves": 7,
+      "max_depth": 3,
+      "min_child_samples": 50,
+      "reg_lambda": 1.0,
+      "random_state": 42,
+      "n_jobs": 1,
+      "verbosity": -1
+    }
+  },
+  "primary_metric": "rmse",
+  "secondary_metric": "mae",
+  "stored_metric_units": "fractional_return",
+  "display_metric_units": "percentage_points",
+  "relative_rmse_gain_formula": "(zero_rmse - model_rmse) / zero_rmse * 100",
+  "zero_denominator_policy": "null",
+  "selection": {
+    "lowest_validation_rmse": "ZERO",
+    "test_based_model_selection": false,
+    "all_four_results_reported": true
+  },
+  "uncertainty_assessment_planned": false,
+  "input_sha256": {
+    "data/splits/train.csv": "e8effe1f5728acc1b3c174220c01b4ef08f48a988803943bcf16db220a782650",
+    "data/splits/validation.csv": "f0d198f7498527a4b2e7fc76ee0e40c76580acd75f3e33ef48773f0004bede3e",
+    "data/splits/test.csv": "74f73db1fbbb5fe9444fd6ab0e711ad8f05577a7c77345bdf8b64b5302801056",
+    "reports/split_summary.json": "64f64d9f18cff1028eda58caf35099d537ec56c38e8abf42dc02d104361ff215",
+    "reports/baseline_validation.json": "d9cc71f6af8d466a491e6fbfe6e7b7039683118eabbdff754cc1f099e672cf3a",
+    "reports/lightgbm_validation.json": "c3ba533c8fcd3639546c861d965df2ca62d2aed7d9686201ef89b99fca627888",
+    "train_baselines.py": "a3b194a0817634e484c5b9549193a56529d115654c22d20a054be680a14e8e2c",
+    "train_lightgbm.py": "0ca79afe2834679124036d39bbadd5897031e1bb71a38e078610344cf11fcdd6",
+    "artifacts/baselines/zero.joblib": "b26cd3f5fdab3851967fa7146e9ab392f3b5d3c05060868cab3459e913f115c8",
+    "artifacts/baselines/train_mean.joblib": "00932ef45ab0237b125774743d5fd81d829c675ff75a27da6a3818d3365da3f1",
+    "artifacts/baselines/ridge.joblib": "dbc5506edd5d1a0e020540abe5044eb512100da1852189acc2ca427c9001a53a",
+    "artifacts/lightgbm_fixed.joblib": "aa51c5527a0801dab5671a8cbbf344e3c2db12820795a27fd6abc7c1367f4ace"
+  },
+  "hashing_note": "Test CSV was read as bytes for integrity hashing only; no test prediction or metric was computed.",
+  "interpretation": "Single-instrument fixed-model historical evaluation; no significance or trading profit claim."
+}
