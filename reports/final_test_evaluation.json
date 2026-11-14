@@ -2,8 +2,8 @@
   "evaluation_set": "test",
   "test_evaluated": true,
   "evaluation_date": "2026-11-14",
-  "source_commit": "1fd2b64827308c35248fd248eb5c1b19b519b785",
-  "current_commit": "d645918d6759374847902b5042b9824e2da25e76",
+  "source_commit": "4cd273b362b0e4b7d80a7bd670a0c68ac447e67a",
+  "current_commit": "5ce0a90caed6a2afa07f24a46a25c77a4ec7260b",
   "features": [
     "return_1d",
     "return_5d",

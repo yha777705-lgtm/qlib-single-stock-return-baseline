@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "verification_date": "2026-11-09",
-  "source_commit": "13ea408cf4b5ffc5b3f618af9ce7c596eddd540a",
-  "reproduction_commit": "13ea408cf4b5ffc5b3f618af9ce7c596eddd540a",
+  "source_commit": "514ac6e1577850655b544183d9228f9819c9e0a4",
+  "reproduction_commit": "514ac6e1577850655b544183d9228f9819c9e0a4",
   "scope": "Same Windows computer; newly created Conda environment and a clean local clone; same existing raw dataset; no independent data download or cross-platform validation",
   "python_environment": "qlib-reproduce",
   "python_version": "3.11.18",

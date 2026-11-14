@@ -2,7 +2,7 @@
   "recorded_date": "2026-11-13",
   "status": "evaluated",
   "test_evaluated": true,
-  "source_commit": "1fd2b64827308c35248fd248eb5c1b19b519b785",
+  "source_commit": "4cd273b362b0e4b7d80a7bd670a0c68ac447e67a",
   "features": [
     "return_1d",
     "return_5d",
