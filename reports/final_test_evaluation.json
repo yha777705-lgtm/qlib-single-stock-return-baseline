@@ -1,0 +1,75 @@
+{
+  "evaluation_set": "test",
+  "test_evaluated": true,
+  "evaluation_date": "2026-11-14",
+  "source_commit": "1fd2b64827308c35248fd248eb5c1b19b519b785",
+  "current_commit": "d645918d6759374847902b5042b9824e2da25e76",
+  "features": [
+    "return_1d",
+    "return_5d",
+    "volume_ratio_5d"
+  ],
+  "target": "target_return_1d",
+  "rows": 478,
+  "feature_date_range": {
+    "start": "2019-01-02",
+    "end": "2020-12-30"
+  },
+  "target_date_range": {
+    "start": "2019-01-03",
+    "end": "2020-12-31"
+  },
+  "primary_metric": "rmse",
+  "secondary_metric": "mae",
+  "metric_units": {
+    "stored": "fractional_return",
+    "display": "percentage_points"
+  },
+  "models": {
+    "ZERO": {
+      "mae": 0.009033908552510461,
+      "rmse": 0.013251719339755915,
+      "rmse_gain_vs_zero_pct": 0.0
+    },
+    "TRAIN_MEAN": {
+      "mae": 0.00905171686031978,
+      "rmse": 0.013253749470958977,
+      "rmse_gain_vs_zero_pct": -0.015319757014260643
+    },
+    "RIDGE": {
+      "mae": 0.009113764981056802,
+      "rmse": 0.013302549333578884,
+      "rmse_gain_vs_zero_pct": -0.3835728219090483
+    },
+    "LIGHTGBM_FIXED": {
+      "mae": 0.008973286071265307,
+      "rmse": 0.01314380653385693,
+      "rmse_gain_vs_zero_pct": 0.8143306021826169
+    }
+  },
+  "rmse_ranking": [
+    "LIGHTGBM_FIXED",
+    "ZERO",
+    "TRAIN_MEAN",
+    "RIDGE"
+  ],
+  "model_selection_after_test": false,
+  "refit_on_validation": false,
+  "rolling_retraining": false,
+  "uncertainty_assessed": false,
+  "interpretation": "Descriptive result for one instrument and one fixed historical test period; no significance, stability, or trading-profit claim.",
+  "input_sha256": {
+    "data/splits/train.csv": "e8effe1f5728acc1b3c174220c01b4ef08f48a988803943bcf16db220a782650",
+    "data/splits/validation.csv": "f0d198f7498527a4b2e7fc76ee0e40c76580acd75f3e33ef48773f0004bede3e",
+    "data/splits/test.csv": "74f73db1fbbb5fe9444fd6ab0e711ad8f05577a7c77345bdf8b64b5302801056",
+    "reports/split_summary.json": "64f64d9f18cff1028eda58caf35099d537ec56c38e8abf42dc02d104361ff215",
+    "reports/baseline_validation.json": "d9cc71f6af8d466a491e6fbfe6e7b7039683118eabbdff754cc1f099e672cf3a",
+    "reports/lightgbm_validation.json": "c3ba533c8fcd3639546c861d965df2ca62d2aed7d9686201ef89b99fca627888",
+    "train_baselines.py": "a3b194a0817634e484c5b9549193a56529d115654c22d20a054be680a14e8e2c",
+    "train_lightgbm.py": "0ca79afe2834679124036d39bbadd5897031e1bb71a38e078610344cf11fcdd6",
+    "artifacts/baselines/zero.joblib": "b26cd3f5fdab3851967fa7146e9ab392f3b5d3c05060868cab3459e913f115c8",
+    "artifacts/baselines/train_mean.joblib": "00932ef45ab0237b125774743d5fd81d829c675ff75a27da6a3818d3365da3f1",
+    "artifacts/baselines/ridge.joblib": "dbc5506edd5d1a0e020540abe5044eb512100da1852189acc2ca427c9001a53a",
+    "artifacts/lightgbm_fixed.joblib": "aa51c5527a0801dab5671a8cbbf344e3c2db12820795a27fd6abc7c1367f4ace"
+  }
+}

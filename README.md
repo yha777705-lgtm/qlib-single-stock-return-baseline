@@ -40,7 +40,7 @@ qlib_data_simple_cn_1d_0.9.zip。
 | 验证集 | 2017-01-03 至 2018-12-27 | 479 |
 | 测试集 | 2019-01-02 至 2020-12-30 | 478 |
 
-测试集尚未用于模型性能评估。
+测试集在方案固定后仅评价一次，结果见“最终测试结果”。
 
 ## 验证集结果
 
@@ -119,13 +119,26 @@ LightGBM 在训练集上的改善没有延续到该验证时期；
 
 1. 预测任务：使用 SH600000 当天收盘后可获得的信息，预测下一个交易日的收盘到收盘收益率。
 2. 当前结果：在2017—2018年验证集上，固定 Ridge 和 LightGBM 的 RMSE 均高于零预测。原训练期内的两折 Ridge 时间验证表现不一致，合并折外预测的 RMSE 也高于零预测；当前结果不支持模型稳定优于零预测。
-3. 实验局限：仅研究一只股票、三个简单特征、有限时期和固定模型配置；尚未评估测试集或检验误差差异的不确定性。覆盖范围有限不能证明它是表现不佳的原因，也不能保证增加数据后模型会改善。
+3. 实验局限：仅研究一只股票、三个简单特征、有限时期和固定模型配置；测试集结果未进行不确定性检验。覆盖范围有限不能证明它是表现不佳的原因，也不能保证增加数据后模型会改善。
 
 ## 最终测试方案
 
-已在测试集评分之前记录 [TEST_PLAN.md](TEST_PLAN.md)，机器可读配置及输入文件指纹见 reports/final_test_plan.json。当前仍未评估测试集。
+已在测试集评分之前记录 [TEST_PLAN.md](TEST_PLAN.md)，机器可读配置及输入文件指纹见 reports/final_test_plan.json；执行结果见 reports/final_test_evaluation.json。
 
 方案固定原训练期拟合的 ZERO、TRAIN_MEAN、三特征 Ridge 和固定参数 LightGBM；以 RMSE 为主指标，MAE 为辅助指标，完整报告四组结果。此次不合并验证集重训，不加入特征消融配置，也不根据测试结果选择模型或调整方案。
+
+## 最终测试结果
+
+按照 TEST_PLAN.md 固定的方案，在未参与模型选择的2019—2020年测试集（478条）上一次性评价四组模型。RMSE 单位为百分点。
+
+| 模型 | MAE | RMSE | 相对零预测 RMSE 改善 |
+|---|---:|---:|---:|
+| ZERO | 0.9034 | 1.3252 | 0.0000% |
+| TRAIN_MEAN | 0.9052 | 1.3254 | -0.0153% |
+| RIDGE | 0.9114 | 1.3303 | -0.3836% |
+| LIGHTGBM_FIXED | 0.8973 | **1.3144** | **+0.8143%** |
+
+在这一个固定的 SH600000 测试时期，LightGBM 的 RMSE 比零预测低约0.8143%。这是单只股票、一个历史时期、固定训练截止时间下的描述性结果；没有统计显著性、稳定性或交易盈利结论。测试结果没有用于重新选择模型或调参，完整结果见 reports/final_test_evaluation.json。
 
 ## 环境与数据路径
 
@@ -177,6 +190,7 @@ python train_lightgbm.py
 python diagnose_model.py
 python evaluate_validation.py
 python plot_validation_comparison.py
+python evaluate_final_test.py
 ```
 
 plot_validation_comparison.py 只读取已保存的验证报告，生成 reports/validation_model_comparison.png，无须重新训练。绘图使用 requirements.txt 中已记录的 Matplotlib；脚本与图表由 Codex 经用户授权完成。
@@ -190,7 +204,7 @@ evaluate_validation.py 将讨论中练习的评价公式整理为独立脚本：
 
 10个数据、报告和验证集预测文件的 SHA-256 均与原实验一致，证据见 reports/reproduction_check.json。
 本次复用了已有原始数据，未重新验证下载，也未验证其他电脑或平台。
-当前训练与诊断脚本评估训练集和验证集，尚未评估测试集。
+evaluate_final_test.py 按 TEST_PLAN.md 读取固定模型并评价测试集；重复运行只用于复现同一方案，不根据结果调参或选模。
 config.py 统一管理数据路径。
 
 默认读取当前用户 Downloads 下的 qlib_data_simple_cn_1d_0.9 目录，

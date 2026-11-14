@@ -1,7 +1,7 @@
 {
   "recorded_date": "2026-11-13",
-  "status": "planned_not_evaluated",
-  "test_evaluated": false,
+  "status": "evaluated",
+  "test_evaluated": true,
   "source_commit": "1fd2b64827308c35248fd248eb5c1b19b519b785",
   "features": [
     "return_1d",
@@ -75,6 +75,8 @@
     "artifacts/baselines/ridge.joblib": "dbc5506edd5d1a0e020540abe5044eb512100da1852189acc2ca427c9001a53a",
     "artifacts/lightgbm_fixed.joblib": "aa51c5527a0801dab5671a8cbbf344e3c2db12820795a27fd6abc7c1367f4ace"
   },
-  "hashing_note": "Test CSV was read as bytes for integrity hashing only; no test prediction or metric was computed.",
+  "hashing_note": "Before evaluation, all listed inputs were read as bytes for integrity hashing. The fixed evaluation was then run once and recorded separately.",
+  "evaluation_report": "reports/final_test_evaluation.json",
+  "evaluation_date": "2026-11-14",
   "interpretation": "Single-instrument fixed-model historical evaluation; no significance or trading profit claim."
 }
